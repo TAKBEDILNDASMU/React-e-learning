@@ -1,18 +1,18 @@
-import { useState } from "react"
-import Header from "../components/Header"
-import Sidebar from "../components/Sidebar"
-import { Outlet } from "react-router-dom"
+import { useState } from "react";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+import { Outlet } from "react-router-dom";
 
-const Root = () => {
-  const [sidebarVisibility, setSidebarVisibility] = useState(true)
+const Root = ({ name, role }) => {
+  const [sidebarVisibility, setSidebarVisibility] = useState(true);
 
   const handleToggleSidebar = () => {
-    setSidebarVisibility(!sidebarVisibility)
-  }
+    setSidebarVisibility(!sidebarVisibility);
+  };
 
   const closeSidebar = () => {
-    setSidebarVisibility(true)
-  }
+    setSidebarVisibility(true);
+  };
 
   return (
     <div className="flex h-screen bg-gray-200 font-roboto">
@@ -20,6 +20,8 @@ const Root = () => {
         sidebarVisibility={sidebarVisibility}
         setSidebarVisibility={setSidebarVisibility}
         onClose={closeSidebar}
+        name={name}
+        role={role}
       />
 
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -30,7 +32,7 @@ const Root = () => {
         </main>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Root
+export default Root;
